@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="settings.css">
     <link rel="icon" href="images/prti-logo.png" type="image/png">
 </head>
 
@@ -42,6 +43,12 @@
                     </svg>
                     <span>(480) 123-4567</span>
                 </a>
+                <button class="settings-trigger" id="settingsTrigger" aria-label="Open settings">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                </button>
                 <button class="btn-register">Book Appointment</button>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -497,7 +504,666 @@
         </div>
     </div>
 
+    <!-- ===== SETTINGS PANEL V2 ===== -->
+    <div class="settings-overlay" id="settingsOverlay"></div>
+    <aside class="settings-panel" id="settingsPanel">
+        <!-- Header -->
+        <div class="settings-header">
+            <div class="settings-header-left">
+                <div class="settings-header-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m8.66-13.5l-.87.5M4.21 16.5l-.87.5M20.66 16.5l-.87-.5M4.21 7.5l-.87-.5M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path></svg>
+                </div>
+                <h2>
+                    Website Builder
+                    <span>Customize your site in real-time</span>
+                </h2>
+            </div>
+            <button class="settings-close" id="settingsClose" aria-label="Close settings">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                    <path d="M18 6 6 18"></path>
+                    <path d="m6 6 12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="settings-tabs">
+            <button class="settings-tab active" data-tab="design">
+                <span class="settings-tab-icon">🎨</span> Design
+            </button>
+            <button class="settings-tab" data-tab="content">
+                <span class="settings-tab-icon">✏️</span> Content
+            </button>
+            <button class="settings-tab" data-tab="sections">
+                <span class="settings-tab-icon">📑</span> Sections
+            </button>
+            <button class="settings-tab" data-tab="advanced">
+                <span class="settings-tab-icon">⚡</span> Advanced
+            </button>
+        </div>
+
+        <!-- Tab Body -->
+        <div class="settings-body">
+
+            <!-- ═══════════════════════════
+                 DESIGN TAB
+                 ═══════════════════════════ -->
+            <div class="settings-tab-content active" id="settings-design">
+
+                <!-- Preset Themes (always open) -->
+                <div class="settings-group">
+                    <div class="settings-group-title">Preset Themes</div>
+                    <div class="theme-presets">
+                        <button class="theme-preset active" data-theme="ocean-blue">
+                            <div class="theme-swatch"><span style="background:#25aae1"></span><span style="background:#f5931e"></span><span style="background:#f7f9fc"></span></div>
+                            <span class="theme-preset-name">Ocean</span>
+                        </button>
+                        <button class="theme-preset" data-theme="forest-green">
+                            <div class="theme-swatch"><span style="background:#22c55e"></span><span style="background:#eab308"></span><span style="background:#f0fdf4"></span></div>
+                            <span class="theme-preset-name">Forest</span>
+                        </button>
+                        <button class="theme-preset" data-theme="sunset-orange">
+                            <div class="theme-swatch"><span style="background:#f97316"></span><span style="background:#8b5cf6"></span><span style="background:#fff7ed"></span></div>
+                            <span class="theme-preset-name">Sunset</span>
+                        </button>
+                        <button class="theme-preset" data-theme="midnight-dark">
+                            <div class="theme-swatch"><span style="background:#818cf8"></span><span style="background:#f472b6"></span><span style="background:#0f172a"></span></div>
+                            <span class="theme-preset-name">Midnight</span>
+                        </button>
+                        <button class="theme-preset" data-theme="clean-minimal">
+                            <div class="theme-swatch"><span style="background:#374151"></span><span style="background:#6b7280"></span><span style="background:#ffffff"></span></div>
+                            <span class="theme-preset-name">Minimal</span>
+                        </button>
+                        <button class="theme-preset" data-theme="royal-purple">
+                            <div class="theme-swatch"><span style="background:#7c3aed"></span><span style="background:#06b6d4"></span><span style="background:#faf5ff"></span></div>
+                            <span class="theme-preset-name">Royal</span>
+                        </button>
+                        <button class="theme-preset" data-theme="rose-gold">
+                            <div class="theme-swatch"><span style="background:#e11d48"></span><span style="background:#d97706"></span><span style="background:#fff1f2"></span></div>
+                            <span class="theme-preset-name">Rose</span>
+                        </button>
+                        <button class="theme-preset" data-theme="ocean-dark">
+                            <div class="theme-swatch"><span style="background:#06b6d4"></span><span style="background:#f59e0b"></span><span style="background:#0c1222"></span></div>
+                            <span class="theme-preset-name">Deep Sea</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Colors (collapsible) -->
+                <div class="settings-group collapsed">
+                    <div class="settings-group-title collapsible">Colors
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="settings-group-body">
+                        <div class="settings-control">
+                            <label class="settings-label">Primary Color</label>
+                            <div class="settings-color-row">
+                                <input type="color" id="settings-color-primary" class="settings-color-input" value="#25aae1">
+                                <input type="text" id="settings-color-primary-hex" class="settings-color-hex" value="#25aae1" maxlength="7">
+                            </div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Secondary Color</label>
+                            <div class="settings-color-row">
+                                <input type="color" id="settings-color-secondary" class="settings-color-input" value="#f5931e">
+                                <input type="text" id="settings-color-secondary-hex" class="settings-color-hex" value="#f5931e" maxlength="7">
+                            </div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Background</label>
+                            <div class="settings-color-row">
+                                <input type="color" id="settings-color-bg" class="settings-color-input" value="#f7f9fc">
+                                <input type="text" id="settings-color-bg-hex" class="settings-color-hex" value="#f7f9fc" maxlength="7">
+                            </div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Text Color</label>
+                            <div class="settings-color-row">
+                                <input type="color" id="settings-color-text" class="settings-color-input" value="#1a2b3c">
+                                <input type="text" id="settings-color-text-hex" class="settings-color-hex" value="#1a2b3c" maxlength="7">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typography (collapsible) -->
+                <div class="settings-group collapsed">
+                    <div class="settings-group-title collapsible">Typography
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="settings-group-body">
+                        <div class="settings-control">
+                            <label class="settings-label">Body Font</label>
+                            <select id="settings-font" class="settings-select">
+                                <option value="Inter">Inter (Default)</option>
+                                <option value="Roboto">Roboto</option>
+                                <option value="Poppins">Poppins</option>
+                                <option value="Outfit">Outfit</option>
+                                <option value="DM Sans">DM Sans</option>
+                                <option value="Montserrat">Montserrat</option>
+                            </select>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Heading Font</label>
+                            <select id="settings-heading-font" class="settings-select">
+                                <option value="Inter">Inter (Default)</option>
+                                <option value="Roboto">Roboto</option>
+                                <option value="Poppins">Poppins</option>
+                                <option value="Outfit">Outfit</option>
+                                <option value="Playfair Display">Playfair Display</option>
+                                <option value="DM Sans">DM Sans</option>
+                                <option value="Montserrat">Montserrat</option>
+                            </select>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Heading Size</label>
+                            <div class="settings-range-wrap">
+                                <input type="range" id="settings-heading-scale" class="settings-range" min="0.7" max="1.5" step="0.1" value="1.0">
+                                <span id="settings-heading-scale-value" class="settings-range-value">1.0x</span>
+                            </div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Body Text Size</label>
+                            <div class="settings-range-wrap">
+                                <input type="range" id="settings-body-size" class="settings-range" min="12" max="20" value="15">
+                                <span id="settings-body-size-value" class="settings-range-value">15px</span>
+                            </div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Line Height</label>
+                            <div class="settings-range-wrap">
+                                <input type="range" id="settings-line-height" class="settings-range" min="1.2" max="2.2" step="0.1" value="1.6">
+                                <span id="settings-line-height-value" class="settings-range-value">1.6</span>
+                            </div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Letter Spacing</label>
+                            <div class="settings-range-wrap">
+                                <input type="range" id="settings-letter-spacing" class="settings-range" min="-1" max="3" step="0.5" value="0">
+                                <span id="settings-letter-spacing-value" class="settings-range-value">0px</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shape & Spacing (collapsible) -->
+                <div class="settings-group collapsed">
+                    <div class="settings-group-title collapsible">Shape &amp; Spacing
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="settings-group-body">
+                        <div class="settings-control">
+                            <label class="settings-label">Border Radius</label>
+                            <div class="settings-range-wrap">
+                                <input type="range" id="settings-radius" class="settings-range" min="0" max="32" value="16">
+                                <span id="settings-radius-value" class="settings-range-value">16px</span>
+                            </div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Content Max Width</label>
+                            <div class="settings-range-wrap">
+                                <input type="range" id="settings-max-width" class="settings-range" min="960" max="1600" step="20" value="1320">
+                                <span id="settings-max-width-value" class="settings-range-value">1320px</span>
+                            </div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Section Gap</label>
+                            <div class="settings-range-wrap">
+                                <input type="range" id="settings-section-gap" class="settings-range" min="0" max="80" step="4" value="0">
+                                <span id="settings-section-gap-value" class="settings-range-value">0px</span>
+                            </div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Card Padding</label>
+                            <div class="settings-range-wrap">
+                                <input type="range" id="settings-card-padding" class="settings-range" min="0.5" max="1.8" step="0.1" value="1.0">
+                                <span id="settings-card-padding-value" class="settings-range-value">1.0x</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════
+                 CONTENT TAB
+                 ═══════════════════════════ -->
+            <div class="settings-tab-content" id="settings-content">
+
+                <!-- Hero Section (collapsible) -->
+                <div class="settings-group collapsed">
+                    <div class="settings-group-title collapsible">Hero Section
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="settings-group-body">
+                        <div class="settings-control">
+                            <label class="settings-label">Headline</label>
+                            <textarea id="settings-hero-title" class="settings-textarea" rows="3">Start Your Journey to
+Better Mobility
+Today</textarea>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Description</label>
+                            <textarea id="settings-hero-desc" class="settings-textarea" rows="3">At PRTI, we provide expert positional release therapy &amp; rehabilitation services designed to help you overcome pain, prevent injuries, &amp; regain mobility.</textarea>
+                        </div>
+                        <div class="settings-compact-grid">
+                            <div class="settings-compact-item">
+                                <label class="settings-compact-label">Primary Button</label>
+                                <input type="text" id="settings-hero-btn" class="settings-input-compact" value="Book Appointment">
+                            </div>
+                            <div class="settings-compact-item">
+                                <label class="settings-compact-label">Secondary Button</label>
+                                <input type="text" id="settings-hero-btn-sec" class="settings-input-compact" value="Learn More">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Section (collapsible) -->
+                <div class="settings-group collapsed">
+                    <div class="settings-group-title collapsible">About Section
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="settings-group-body">
+                        <div class="settings-control">
+                            <label class="settings-label">Title</label>
+                            <textarea id="settings-about-title" class="settings-textarea" rows="2">Dedicated to Restoring Your Body's Natural Balance</textarea>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Description</label>
+                            <textarea id="settings-about-desc" class="settings-textarea" rows="3">At the Positional Release Therapy Institute, we specialize in gentle, non-invasive techniques that work with your body's natural healing mechanisms.</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Section (collapsible) -->
+                <div class="settings-group collapsed">
+                    <div class="settings-group-title collapsible">Contact Section
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="settings-group-body">
+                        <div class="settings-control">
+                            <label class="settings-label">Section Title</label>
+                            <input type="text" id="settings-contact-title" class="settings-input" value="Ready to Start Your Recovery?">
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Subtitle</label>
+                            <textarea id="settings-contact-subtitle" class="settings-textarea" rows="2">Schedule a complimentary consultation with our expert therapists.</textarea>
+                        </div>
+                        <div class="settings-compact-grid">
+                            <div class="settings-compact-item">
+                                <label class="settings-compact-label">Phone</label>
+                                <input type="text" id="settings-contact-phone" class="settings-input-compact" value="(480) 123-4567">
+                            </div>
+                            <div class="settings-compact-item">
+                                <label class="settings-compact-label">Email</label>
+                                <input type="text" id="settings-contact-email" class="settings-input-compact" value="info@prti.com">
+                            </div>
+                        </div>
+                        <div class="settings-control" style="margin-top:10px">
+                            <label class="settings-label">Address</label>
+                            <textarea id="settings-contact-address" class="settings-textarea" rows="2">123 Therapy Lane
+Scottsdale, AZ 85251</textarea>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Office Hours</label>
+                            <textarea id="settings-contact-hours" class="settings-textarea" rows="2">Mon – Fri: 8am – 6pm
+Sat: 9am – 1pm</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation (collapsible) -->
+                <div class="settings-group collapsed">
+                    <div class="settings-group-title collapsible">Navigation
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="settings-group-body">
+                        <div class="settings-compact-grid">
+                            <div class="settings-compact-item">
+                                <label class="settings-compact-label">Brand Name</label>
+                                <input type="text" id="settings-nav-brand" class="settings-input-compact" value="PRTI">
+                            </div>
+                            <div class="settings-compact-item">
+                                <label class="settings-compact-label">Tagline</label>
+                                <input type="text" id="settings-nav-tagline" class="settings-input-compact" value="Therapy Institute">
+                            </div>
+                        </div>
+                        <div class="settings-control" style="margin-top:12px">
+                            <label class="settings-label">Nav Links</label>
+                            <div class="nav-links-editor">
+                                <div class="nav-link-row"><span class="nav-link-num">1</span><input type="text" id="settings-nav-link-0" class="settings-input-compact" value="Home"></div>
+                                <div class="nav-link-row"><span class="nav-link-num">2</span><input type="text" id="settings-nav-link-1" class="settings-input-compact" value="Services"></div>
+                                <div class="nav-link-row"><span class="nav-link-num">3</span><input type="text" id="settings-nav-link-2" class="settings-input-compact" value="About"></div>
+                                <div class="nav-link-row"><span class="nav-link-num">4</span><input type="text" id="settings-nav-link-3" class="settings-input-compact" value="Contact"></div>
+                            </div>
+                        </div>
+                        <div class="settings-toggle-row">
+                            <div class="settings-toggle-info"><span class="settings-toggle-emoji">📞</span><span class="settings-toggle-name">Show Phone</span></div>
+                            <label class="toggle-switch"><input type="checkbox" id="settings-nav-phone" checked><span class="toggle-slider"></span></label>
+                        </div>
+                        <div class="settings-toggle-row">
+                            <div class="settings-toggle-info"><span class="settings-toggle-emoji">🔘</span><span class="settings-toggle-name">Show CTA Button</span></div>
+                            <label class="toggle-switch"><input type="checkbox" id="settings-nav-cta-toggle" checked><span class="toggle-slider"></span></label>
+                        </div>
+                        <div class="settings-control" style="margin-top:8px">
+                            <label class="settings-label">CTA Button Text</label>
+                            <input type="text" id="settings-nav-cta" class="settings-input-compact" value="Book Appointment">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer (collapsible) -->
+                <div class="settings-group collapsed">
+                    <div class="settings-group-title collapsible">Footer
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="settings-group-body">
+                        <div class="settings-control">
+                            <label class="settings-label">Copyright Text</label>
+                            <input type="text" id="settings-footer-copyright" class="settings-input" value="© 2025 Positional Release Therapy Institute. All rights reserved.">
+                        </div>
+                        <div class="settings-toggle-row">
+                            <div class="settings-toggle-info"><span class="settings-toggle-emoji">📧</span><span class="settings-toggle-name">Newsletter Section</span></div>
+                            <label class="toggle-switch"><input type="checkbox" id="settings-footer-newsletter" checked><span class="toggle-slider"></span></label>
+                        </div>
+                        <div class="settings-control" style="margin-top:10px">
+                            <label class="settings-label">Social Links</label>
+                        </div>
+                        <div class="settings-compact-grid">
+                            <div class="settings-compact-item">
+                                <label class="settings-compact-label">Facebook URL</label>
+                                <input type="text" id="settings-footer-facebook" class="settings-input-compact" placeholder="https://facebook.com/...">
+                            </div>
+                            <div class="settings-compact-item">
+                                <label class="settings-compact-label">Instagram URL</label>
+                                <input type="text" id="settings-footer-instagram" class="settings-input-compact" placeholder="https://instagram.com/...">
+                            </div>
+                            <div class="settings-compact-item" style="grid-column:span 2">
+                                <label class="settings-compact-label">LinkedIn URL</label>
+                                <input type="text" id="settings-footer-linkedin" class="settings-input-compact" placeholder="https://linkedin.com/...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════
+                 SECTIONS TAB
+                 ═══════════════════════════ -->
+            <div class="settings-tab-content" id="settings-sections">
+
+                <!-- Visibility Toggles -->
+                <div class="settings-group">
+                    <div class="settings-group-title">Visible Sections</div>
+                    <div class="settings-toggle-row">
+                        <div class="settings-toggle-info"><span class="settings-toggle-emoji">🏠</span><span class="settings-toggle-name">Hero Section</span></div>
+                        <label class="toggle-switch"><input type="checkbox" id="settings-section-hero" checked><span class="toggle-slider"></span></label>
+                    </div>
+                    <div class="settings-toggle-row">
+                        <div class="settings-toggle-info"><span class="settings-toggle-emoji">🩺</span><span class="settings-toggle-name">Services</span></div>
+                        <label class="toggle-switch"><input type="checkbox" id="settings-section-services" checked><span class="toggle-slider"></span></label>
+                    </div>
+                    <div class="settings-toggle-row">
+                        <div class="settings-toggle-info"><span class="settings-toggle-emoji">ℹ️</span><span class="settings-toggle-name">About</span></div>
+                        <label class="toggle-switch"><input type="checkbox" id="settings-section-about" checked><span class="toggle-slider"></span></label>
+                    </div>
+                    <div class="settings-toggle-row">
+                        <div class="settings-toggle-info"><span class="settings-toggle-emoji">📧</span><span class="settings-toggle-name">Contact</span></div>
+                        <label class="toggle-switch"><input type="checkbox" id="settings-section-contact" checked><span class="toggle-slider"></span></label>
+                    </div>
+                    <div class="settings-toggle-row">
+                        <div class="settings-toggle-info"><span class="settings-toggle-emoji">🔗</span><span class="settings-toggle-name">Footer</span></div>
+                        <label class="toggle-switch"><input type="checkbox" id="settings-section-footer" checked><span class="toggle-slider"></span></label>
+                    </div>
+                    <div class="settings-toggle-row">
+                        <div class="settings-toggle-info"><span class="settings-toggle-emoji">💬</span><span class="settings-toggle-name">Chatbot</span></div>
+                        <label class="toggle-switch"><input type="checkbox" id="settings-section-chatbot" checked><span class="toggle-slider"></span></label>
+                    </div>
+                </div>
+
+                <!-- Per-Section Styles -->
+                <div class="settings-group collapsed">
+                    <div class="settings-group-title collapsible">Section Styles
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="settings-group-body">
+
+                        <!-- Hero Style -->
+                        <div class="section-style-card">
+                            <div class="section-style-header">
+                                <span class="section-style-name"><span class="dot"></span> Hero</span>
+                            </div>
+                            <div class="section-style-controls">
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">BG Color</span>
+                                    <div class="settings-color-row">
+                                        <input type="color" id="settings-secstyle-hero-bg" class="settings-color-input" value="#ffffff">
+                                        <input type="text" id="settings-secstyle-hero-bg-hex" class="settings-color-hex" value="" maxlength="7" placeholder="auto">
+                                    </div>
+                                </div>
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">Gradient End</span>
+                                    <div class="settings-color-row">
+                                        <input type="color" id="settings-secstyle-hero-gradend" class="settings-color-input" value="#ffffff">
+                                        <input type="text" id="settings-secstyle-hero-gradend-hex" class="settings-color-hex" value="" maxlength="7" placeholder="auto">
+                                    </div>
+                                </div>
+                                <div class="gradient-toggle-row">
+                                    <span class="gradient-toggle-label">Enable Gradient</span>
+                                    <label class="toggle-switch"><input type="checkbox" id="settings-secstyle-hero-gradient"><span class="toggle-slider"></span></label>
+                                </div>
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">Pad Top</span>
+                                    <div class="settings-range-wrap"><input type="range" id="settings-secstyle-hero-pt" class="settings-range" min="0" max="200" value="50"><span id="settings-secstyle-hero-pt-value" class="settings-range-value">50px</span></div>
+                                </div>
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">Pad Bottom</span>
+                                    <div class="settings-range-wrap"><input type="range" id="settings-secstyle-hero-pb" class="settings-range" min="0" max="200" value="30"><span id="settings-secstyle-hero-pb-value" class="settings-range-value">30px</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Services Style -->
+                        <div class="section-style-card">
+                            <div class="section-style-header">
+                                <span class="section-style-name"><span class="dot"></span> Services</span>
+                            </div>
+                            <div class="section-style-controls">
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">BG Color</span>
+                                    <div class="settings-color-row">
+                                        <input type="color" id="settings-secstyle-services-bg" class="settings-color-input" value="#ffffff">
+                                        <input type="text" id="settings-secstyle-services-bg-hex" class="settings-color-hex" value="" maxlength="7" placeholder="auto">
+                                    </div>
+                                </div>
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">Gradient End</span>
+                                    <div class="settings-color-row">
+                                        <input type="color" id="settings-secstyle-services-gradend" class="settings-color-input" value="#ffffff">
+                                        <input type="text" id="settings-secstyle-services-gradend-hex" class="settings-color-hex" value="" maxlength="7" placeholder="auto">
+                                    </div>
+                                </div>
+                                <div class="gradient-toggle-row">
+                                    <span class="gradient-toggle-label">Enable Gradient</span>
+                                    <label class="toggle-switch"><input type="checkbox" id="settings-secstyle-services-gradient"><span class="toggle-slider"></span></label>
+                                </div>
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">Pad Top</span>
+                                    <div class="settings-range-wrap"><input type="range" id="settings-secstyle-services-pt" class="settings-range" min="0" max="200" value="20"><span id="settings-secstyle-services-pt-value" class="settings-range-value">20px</span></div>
+                                </div>
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">Pad Bottom</span>
+                                    <div class="settings-range-wrap"><input type="range" id="settings-secstyle-services-pb" class="settings-range" min="0" max="200" value="60"><span id="settings-secstyle-services-pb-value" class="settings-range-value">60px</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- About Style -->
+                        <div class="section-style-card">
+                            <div class="section-style-header">
+                                <span class="section-style-name"><span class="dot"></span> About</span>
+                            </div>
+                            <div class="section-style-controls">
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">BG Color</span>
+                                    <div class="settings-color-row">
+                                        <input type="color" id="settings-secstyle-about-bg" class="settings-color-input" value="#ffffff">
+                                        <input type="text" id="settings-secstyle-about-bg-hex" class="settings-color-hex" value="" maxlength="7" placeholder="auto">
+                                    </div>
+                                </div>
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">Gradient End</span>
+                                    <div class="settings-color-row">
+                                        <input type="color" id="settings-secstyle-about-gradend" class="settings-color-input" value="#ffffff">
+                                        <input type="text" id="settings-secstyle-about-gradend-hex" class="settings-color-hex" value="" maxlength="7" placeholder="auto">
+                                    </div>
+                                </div>
+                                <div class="gradient-toggle-row">
+                                    <span class="gradient-toggle-label">Enable Gradient</span>
+                                    <label class="toggle-switch"><input type="checkbox" id="settings-secstyle-about-gradient"><span class="toggle-slider"></span></label>
+                                </div>
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">Pad Top</span>
+                                    <div class="settings-range-wrap"><input type="range" id="settings-secstyle-about-pt" class="settings-range" min="0" max="200" value="80"><span id="settings-secstyle-about-pt-value" class="settings-range-value">80px</span></div>
+                                </div>
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">Pad Bottom</span>
+                                    <div class="settings-range-wrap"><input type="range" id="settings-secstyle-about-pb" class="settings-range" min="0" max="200" value="80"><span id="settings-secstyle-about-pb-value" class="settings-range-value">80px</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Style -->
+                        <div class="section-style-card">
+                            <div class="section-style-header">
+                                <span class="section-style-name"><span class="dot"></span> Contact</span>
+                            </div>
+                            <div class="section-style-controls">
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">BG Color</span>
+                                    <div class="settings-color-row">
+                                        <input type="color" id="settings-secstyle-contact-bg" class="settings-color-input" value="#ffffff">
+                                        <input type="text" id="settings-secstyle-contact-bg-hex" class="settings-color-hex" value="" maxlength="7" placeholder="auto">
+                                    </div>
+                                </div>
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">Gradient End</span>
+                                    <div class="settings-color-row">
+                                        <input type="color" id="settings-secstyle-contact-gradend" class="settings-color-input" value="#ffffff">
+                                        <input type="text" id="settings-secstyle-contact-gradend-hex" class="settings-color-hex" value="" maxlength="7" placeholder="auto">
+                                    </div>
+                                </div>
+                                <div class="gradient-toggle-row">
+                                    <span class="gradient-toggle-label">Enable Gradient</span>
+                                    <label class="toggle-switch"><input type="checkbox" id="settings-secstyle-contact-gradient"><span class="toggle-slider"></span></label>
+                                </div>
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">Pad Top</span>
+                                    <div class="settings-range-wrap"><input type="range" id="settings-secstyle-contact-pt" class="settings-range" min="0" max="200" value="80"><span id="settings-secstyle-contact-pt-value" class="settings-range-value">80px</span></div>
+                                </div>
+                                <div class="settings-mini-control">
+                                    <span class="settings-mini-label">Pad Bottom</span>
+                                    <div class="settings-range-wrap"><input type="range" id="settings-secstyle-contact-pb" class="settings-range" min="0" max="200" value="80"><span id="settings-secstyle-contact-pb-value" class="settings-range-value">80px</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════
+                 ADVANCED TAB
+                 ═══════════════════════════ -->
+            <div class="settings-tab-content" id="settings-advanced">
+
+                <!-- Animations (collapsible) -->
+                <div class="settings-group collapsed">
+                    <div class="settings-group-title collapsible">Animations
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="settings-group-body">
+                        <div class="settings-control">
+                            <label class="settings-label">Animation Type</label>
+                            <select id="settings-anim-type" class="settings-select">
+                                <option value="fade">Fade</option>
+                                <option value="slide">Slide</option>
+                                <option value="scale">Scale</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Speed</label>
+                            <select id="settings-anim-speed" class="settings-select">
+                                <option value="fast">Fast (0.3s)</option>
+                                <option value="normal" selected>Normal (0.6s)</option>
+                                <option value="slow">Slow (1.2s)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEO & Page (collapsible) -->
+                <div class="settings-group collapsed">
+                    <div class="settings-group-title collapsible">SEO &amp; Page Settings
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="settings-group-body">
+                        <div class="settings-control">
+                            <label class="settings-label">Page Title</label>
+                            <input type="text" id="settings-seo-title" class="settings-input" value="PRTI — Positional Release Therapy Institute">
+                        </div>
+                        <div class="settings-control">
+                            <label class="settings-label">Meta Description</label>
+                            <textarea id="settings-seo-desc" class="settings-textarea" rows="3">Positional Release Therapy Institute — Expert positional release therapy &amp; rehabilitation services.</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom CSS (collapsible) -->
+                <div class="settings-group collapsed">
+                    <div class="settings-group-title collapsible">Custom CSS
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="settings-group-body">
+                        <div class="settings-control">
+                            <label class="settings-label">Inject custom styles</label>
+                            <textarea id="settings-custom-css" class="settings-textarea code" placeholder="/* Your custom CSS here */&#10;.hero-title { font-size: 52px; }"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuration (always open) -->
+                <div class="settings-group">
+                    <div class="settings-group-title">Configuration</div>
+                    <div class="settings-action-grid">
+                        <button class="settings-action-btn" id="settingsExport">
+                            <span class="settings-action-icon">📦</span>
+                            Export Config
+                        </button>
+                        <button class="settings-action-btn" id="settingsImport">
+                            <span class="settings-action-icon">📥</span>
+                            Import Config
+                        </button>
+                        <button class="settings-action-btn danger" id="settingsReset" style="grid-column: span 2;">
+                            <span class="settings-action-icon">🗑️</span>
+                            Reset All to Defaults
+                        </button>
+                    </div>
+                    <input type="file" id="settingsImportFile" accept=".json">
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="settings-footer">
+            <button class="settings-btn settings-btn-reset" id="settingsReset2" onclick="document.getElementById('settingsReset').click()">Reset</button>
+            <button class="settings-btn settings-btn-save" id="settingsSave">💾 Save Changes</button>
+        </div>
+    </aside>
+
     <script src="script.js"></script>
+    <script src="settings.js"></script>
 </body>
 
 </html>
